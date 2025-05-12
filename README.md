@@ -1,10 +1,10 @@
-# BR-UTM Lab mock servers
+# UTM Lab mock servers
 
-This repository provides mocked dependencies for the execution of BR-UTM Lab.
+This repository provides mocked dependencies for the execution of UTM Lab.
 
 ### Why
 
-To create an effective sandbox environment for testing USSP integration, the environment must contain a controlled setup in which you conduct software testing. This way, it prevents instability caused by updates, patches or changes and maintain consistency making it is easier to simulate real-life situations that USSP will encounter when deployed.
+To create an effective sandbox environment for testing USSP integration, the environment must contain a controlled setup in which you conduct software testing. This way, it prevents instability caused by updates, patches, or changes and maintains consistency, making it easier to simulate real-life situations that USSP will encounter when deployed.
 
 #### Available resources
 
