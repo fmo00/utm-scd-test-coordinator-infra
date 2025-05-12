@@ -1,0 +1,438 @@
+{
+    "uuid": "36fc1ad5-39e0-4b60-8b61-d56d2f9ba109",
+    "lastMigration": 33,
+    "name": "Uss",
+    "endpointPrefix": "",
+    "latency": 0,
+    "port": 3003,
+    "hostname": "",
+    "folders": [],
+    "routes": [
+        {
+            "uuid": "69533612-e52e-4f16-b56a-870f2fc874b6",
+            "type": "http",
+            "documentation": "",
+            "method": "get",
+            "endpoint": "uss/v1/operational_intents/:entityid",
+            "responses": [
+                {
+                    "uuid": "a1f89d25-6b62-4155-a16a-1299bc7b5c73",
+                    "body": "{\n  \"operational_intent\": {\n    \"reference\": {\n      \"id\": \"2f8343be-6482-4d1b-a474-16847e01af1e\",\n      \"manager\": \"uss1\",\n      \"uss_availability\": \"Unknown\",\n      \"version\": 1,\n      \"state\": \"Accepted\",\n      \"ovn\": \"9d158f59-80b7-4c11-9c0c-8a2b4d936b2d\",\n      \"time_start\": {\n        \"value\": \"1985-04-12T23:20:50.52Z\",\n        \"format\": \"RFC3339\"\n      },\n      \"time_end\": {\n        \"value\": \"1985-04-12T23:20:50.52Z\",\n        \"format\": \"RFC3339\"\n      },\n      \"uss_base_url\": \"https://uss.example.com/utm\",\n      \"subscription_id\": \"78ea3fe8-71c2-4f5c-9b44-9c02f5563c6f\"\n    },\n    \"details\": {\n      \"volumes\": [],\n      \"off_nominal_volumes\": [],\n      \"priority\": 0\n    }\n  }\n}",
+                    "latency": 0,
+                    "statusCode": 200,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": false,
+                            "operator": "regex"
+                        },
+                        {
+                            "target": "params",
+                            "modifier": "entityid",
+                            "value": "",
+                            "invert": true,
+                            "operator": "null"
+                        }
+                    ],
+                    "rulesOperator": "AND",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                },
+                {
+                    "uuid": "0d9a8d50-c3f0-4a1d-93c1-efc7b0251327",
+                    "body": "{}",
+                    "latency": 0,
+                    "statusCode": 404,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [],
+                    "rulesOperator": "OR",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": false,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null,
+            "streamingMode": null,
+            "streamingInterval": 0
+        },
+        {
+            "uuid": "3abeb022-fa86-4497-8ea9-4def3b515f37",
+            "type": "http",
+            "documentation": "",
+            "method": "get",
+            "endpoint": "uss/v1/constraints/:entityid",
+            "responses": [
+                {
+                    "uuid": "e1c02640-42e6-4aef-9560-c3ccd7cbd6cf",
+                    "body": "{\n  \"constraint\": {\n    \"reference\": {\n      \"id\": \"2f8343be-6482-4d1b-a474-16847e01af1e\",\n      \"manager\": \"uss1\",\n      \"uss_availability\": \"Unknown\",\n      \"version\": 1,\n      \"ovn\": \"9d158f59-80b7-4c11-9c0c-8a2b4d936b2d\",\n      \"time_start\": {\n        \"value\": \"1985-04-12T23:20:50.52Z\",\n        \"format\": \"RFC3339\"\n      },\n      \"time_end\": {\n        \"value\": \"1985-04-12T23:20:50.52Z\",\n        \"format\": \"RFC3339\"\n      },\n      \"uss_base_url\": \"https://uss.example.com/utm\"\n    },\n    \"details\": {\n      \"volumes\": [\n        {\n          \"volume\": {\n            \"outline_circle\": {\n              \"center\": {\n                \"lng\": -118.456,\n                \"lat\": 34.123\n              },\n              \"radius\": {\n                \"value\": 300.183,\n                \"units\": \"M\"\n              }\n            },\n            \"outline_polygon\": {\n              \"vertices\": [\n                {\n                  \"lng\": -118.456,\n                  \"lat\": 34.123\n                },\n                {\n                  \"lng\": -118.456,\n                  \"lat\": 34.123\n                },\n                {\n                  \"lng\": -118.456,\n                  \"lat\": 34.123\n                }\n              ]\n            },\n            \"altitude_lower\": {\n              \"value\": 100000,\n              \"reference\": \"W84\",\n              \"units\": \"M\"\n            },\n            \"altitude_upper\": {\n              \"value\": 100000,\n              \"reference\": \"W84\",\n              \"units\": \"M\"\n            }\n          },\n          \"time_start\": {\n            \"value\": \"1985-04-12T23:20:50.52Z\",\n            \"format\": \"RFC3339\"\n          },\n          \"time_end\": {\n            \"value\": \"1985-04-12T23:20:50.52Z\",\n            \"format\": \"RFC3339\"\n          }\n        }\n      ],\n      \"type\": \"com.example.non_utm_aircraft_operations\",\n      \"geozone\": {\n        \"identifier\": \"string\",\n        \"country\": \"str\",\n        \"zone_authority\": [\n          {\n            \"name\": \"string\",\n            \"service\": \"string\",\n            \"contact_name\": \"string\",\n            \"site_url\": \"string\",\n            \"email\": \"string\",\n            \"phone\": \"string\",\n            \"purpose\": \"AUTHORIZATION\",\n            \"interval_before\": \"string\"\n          }\n        ],\n        \"name\": \"string\",\n        \"type\": \"COMMON\",\n        \"restriction\": \"string\",\n        \"restriction_conditions\": [\n          \"string\"\n        ],\n        \"region\": 65535,\n        \"reason\": [\n          \"AIR_TRAFFIC\"\n        ],\n        \"other_reason_info\": \"string\",\n        \"regulation_exemption\": \"YES\",\n        \"u_space_class\": \"string\",\n        \"message\": \"string\",\n        \"additional_properties\": null\n      }\n    }\n  }\n}",
+                    "latency": 0,
+                    "statusCode": 200,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authentication",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": false,
+                            "operator": "regex"
+                        },
+                        {
+                            "target": "params",
+                            "modifier": "entityid",
+                            "value": "",
+                            "invert": true,
+                            "operator": "null"
+                        }
+                    ],
+                    "rulesOperator": "AND",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null,
+            "streamingMode": null,
+            "streamingInterval": 0
+        },
+        {
+            "uuid": "9345e775-f18f-421e-ac28-509d03f0e5c5",
+            "type": "http",
+            "documentation": "",
+            "method": "post",
+            "endpoint": "uss/v1/operational_intents",
+            "responses": [
+                {
+                    "uuid": "cafa1210-01f4-4d08-b0f2-0e7de6256106",
+                    "body": "{\n  \"msg\":\"notified successfully\"\n}\n",
+                    "latency": 0,
+                    "statusCode": 204,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "body",
+                            "modifier": "",
+                            "value": "8l21",
+                            "invert": false,
+                            "operator": "valid_json_schema"
+                        },
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": false,
+                            "operator": "regex"
+                        }
+                    ],
+                    "rulesOperator": "AND",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                },
+                {
+                    "uuid": "1b56c1d4-2176-4ed4-92e4-8498390fd960",
+                    "body": "{\n  \"message\": \"The error occurred because parameters were missing or invalid\"\n}",
+                    "latency": 0,
+                    "statusCode": 400,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "body",
+                            "modifier": "",
+                            "value": "8l21",
+                            "invert": true,
+                            "operator": "valid_json_schema"
+                        }
+                    ],
+                    "rulesOperator": "OR",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": false,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null,
+            "streamingMode": null,
+            "streamingInterval": 0
+        },
+        {
+            "uuid": "90b06ce0-ca35-43b9-aac0-0007d8c76993",
+            "type": "http",
+            "documentation": "",
+            "method": "post",
+            "endpoint": "uss/v1/constraints",
+            "responses": [
+                {
+                    "uuid": "e8ca753e-7157-4c75-bb5e-138ce06ffd18",
+                    "body": "{\n  \"msg\":\"notified successfully\"\n}\n",
+                    "latency": 0,
+                    "statusCode": 204,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": false,
+                            "operator": "regex"
+                        },
+                        {
+                            "target": "body",
+                            "modifier": "",
+                            "value": "gf4h",
+                            "invert": false,
+                            "operator": "valid_json_schema"
+                        }
+                    ],
+                    "rulesOperator": "AND",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                },
+                {
+                    "uuid": "1e063c41-343a-4f99-86f2-4a5fe42c2ef0",
+                    "body": "{\n  \"message\": \"The error occurred because parameters were missing or invalid\"\n}",
+                    "latency": 0,
+                    "statusCode": 400,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": false,
+                            "operator": "regex"
+                        },
+                        {
+                            "target": "body",
+                            "modifier": "",
+                            "value": "gf4h",
+                            "invert": true,
+                            "operator": "valid_json_schema"
+                        }
+                    ],
+                    "rulesOperator": "AND",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": false,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null,
+            "streamingMode": null,
+            "streamingInterval": 0
+        },
+        {
+            "uuid": "83e97918-44a0-4bf2-8774-ddd6eb6ba92d",
+            "type": "http",
+            "documentation": "",
+            "method": "all",
+            "endpoint": "uss/v1/*",
+            "responses": [
+                {
+                    "uuid": "008850d2-febe-428a-bdc8-ee9d64af3f13",
+                    "body": "{\n  \"message\": \"bearer access token was not provided in Authorization header, token could not be decoded, or token was invalid\"\n}",
+                    "latency": 0,
+                    "statusCode": 401,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "",
+                            "invert": false,
+                            "operator": "null"
+                        },
+                        {
+                            "target": "header",
+                            "modifier": "Authorization",
+                            "value": "/\\bBearer\\s([A-Za-z0-9\\-._~+]+)\\b/gm",
+                            "invert": true,
+                            "operator": "regex"
+                        }
+                    ],
+                    "rulesOperator": "OR",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": true,
+                    "crudKey": "id",
+                    "callbacks": []
+                },
+                {
+                    "uuid": "241665ed-de12-402d-a58f-b6e9f901c94b",
+                    "body": "{\n  \"message\": \"The error occurred because token not include a scope appropriate to this endpoint\"\n}",
+                    "latency": 0,
+                    "statusCode": 403,
+                    "label": "",
+                    "headers": [],
+                    "bodyType": "INLINE",
+                    "filePath": "",
+                    "databucketID": "",
+                    "sendFileAsBody": false,
+                    "rules": [
+                        {
+                            "target": "templating",
+                            "modifier": "{{jwtPayload (header 'Authorization') 'scope'  }}",
+                            "value": "utm.strategic_coordination",
+                            "invert": true,
+                            "operator": "equals"
+                        },
+                        {
+                            "target": "templating",
+                            "modifier": "{{jwtPayload (header 'Authorization') 'iss'  }}",
+                            "value": "icea",
+                            "invert": true,
+                            "operator": "equals"
+                        }
+                    ],
+                    "rulesOperator": "OR",
+                    "disableTemplating": false,
+                    "fallbackTo404": false,
+                    "default": false,
+                    "crudKey": "id",
+                    "callbacks": []
+                }
+            ],
+            "responseMode": null,
+            "streamingMode": null,
+            "streamingInterval": 0
+        }
+    ],
+    "rootChildren": [
+        {
+            "type": "route",
+            "uuid": "83e97918-44a0-4bf2-8774-ddd6eb6ba92d"
+        },
+        {
+            "type": "route",
+            "uuid": "69533612-e52e-4f16-b56a-870f2fc874b6"
+        },
+        {
+            "type": "route",
+            "uuid": "3abeb022-fa86-4497-8ea9-4def3b515f37"
+        },
+        {
+            "type": "route",
+            "uuid": "9345e775-f18f-421e-ac28-509d03f0e5c5"
+        },
+        {
+            "type": "route",
+            "uuid": "90b06ce0-ca35-43b9-aac0-0007d8c76993"
+        }
+    ],
+    "proxyMode": false,
+    "proxyHost": "",
+    "proxyRemovePrefix": false,
+    "tlsOptions": {
+        "enabled": false,
+        "type": "CERT",
+        "pfxPath": "",
+        "certPath": "",
+        "keyPath": "",
+        "caPath": "",
+        "passphrase": ""
+    },
+    "cors": true,
+    "headers": [
+        {
+            "key": "Content-Type",
+            "value": "application/json"
+        },
+        {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+        },
+        {
+            "key": "Access-Control-Allow-Methods",
+            "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+        },
+        {
+            "key": "Access-Control-Allow-Headers",
+            "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+        }
+    ],
+    "proxyReqHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "proxyResHeaders": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "data": [
+        {
+            "uuid": "7ddf6702-5b5c-4d6a-a788-8fb14e3d92b6",
+            "id": "8l21",
+            "name": "PutOperationalIntentDetailsParameters",
+            "documentation": "",
+            "value": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"operational_intent_id\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\"\n    },\n    \"operational_intent\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"reference\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"manager\": {\n              \"type\": \"string\"\n            },\n            \"uss_availability\": {\n              \"type\": \"string\"\n            },\n            \"version\": {\n              \"type\": \"integer\"\n            },\n            \"state\": {\n              \"type\": \"string\"\n            },\n            \"ovn\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"time_start\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"value\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\"\n                },\n                \"format\": {\n                  \"type\": \"string\",\n                  \"enum\": [\"RFC3339\"]\n                }\n              },\n              \"required\": [\"value\", \"format\"]\n            },\n            \"time_end\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"value\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\"\n                },\n                \"format\": {\n                  \"type\": \"string\",\n                  \"enum\": [\"RFC3339\"]\n                }\n              },\n              \"required\": [\"value\", \"format\"]\n            },\n            \"uss_base_url\": {\n              \"type\": \"string\",\n              \"format\": \"uri\"\n            },\n            \"subscription_id\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            }\n          },\n          \"required\": [\n            \"id\", \n            \"manager\", \n            \"uss_availability\", \n            \"version\", \n            \"state\", \n            \"ovn\", \n            \"time_start\", \n            \"time_end\", \n            \"uss_base_url\", \n            \"subscription_id\"\n          ]\n        },\n        \"details\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"volumes\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\"\n              }\n            },\n            \"off_nominal_volumes\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\"\n              }\n            },\n            \"priority\": {\n              \"type\": \"integer\"\n            }\n          },\n          \"required\": [\"volumes\", \"off_nominal_volumes\", \"priority\"]\n        }\n      },\n      \"required\": [\"reference\", \"details\"]\n    },\n    \"subscriptions\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"subscription_id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          },\n          \"notification_index\": {\n            \"type\": \"integer\"\n          }\n        },\n        \"required\": [\"subscription_id\", \"notification_index\"]\n      }\n    }\n  },\n  \"required\": [\"operational_intent_id\", \"operational_intent\", \"subscriptions\"]\n}\n"
+        },
+        {
+            "uuid": "30644dbb-32d3-42a4-8ae3-1f0bebf408a2",
+            "id": "gf4h",
+            "name": "PutConstraintDetailsParameters",
+            "documentation": "",
+            "value": "{\n  \"type\": \"object\",\n  \"properties\": {\n    \"constraint_id\": {\n      \"type\": \"string\",\n      \"format\": \"uuid\"\n    },\n    \"constraint\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"reference\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"id\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"manager\": {\n              \"type\": \"string\"\n            },\n            \"uss_availability\": {\n              \"type\": \"string\"\n            },\n            \"version\": {\n              \"type\": \"integer\"\n            },\n            \"ovn\": {\n              \"type\": \"string\",\n              \"format\": \"uuid\"\n            },\n            \"time_start\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"value\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\"\n                },\n                \"format\": {\n                  \"type\": \"string\",\n                  \"enum\": [\"RFC3339\"]\n                }\n              },\n              \"required\": [\"value\", \"format\"]\n            },\n            \"time_end\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"value\": {\n                  \"type\": \"string\",\n                  \"format\": \"date-time\"\n                },\n                \"format\": {\n                  \"type\": \"string\",\n                  \"enum\": [\"RFC3339\"]\n                }\n              },\n              \"required\": [\"value\", \"format\"]\n            },\n            \"uss_base_url\": {\n              \"type\": \"string\",\n              \"format\": \"uri\"\n            }\n          },\n          \"required\": [\n            \"id\", \n            \"manager\", \n            \"uss_availability\", \n            \"version\", \n            \"ovn\", \n            \"time_start\", \n            \"time_end\", \n            \"uss_base_url\"\n          ]\n        },\n        \"details\": {\n          \"type\": \"object\",\n          \"properties\": {\n            \"volumes\": {\n              \"type\": \"array\",\n              \"items\": {\n                \"type\": \"object\",\n                \"properties\": {\n                  \"volume\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"outline_circle\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"center\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                              \"lng\": { \"type\": \"number\" },\n                              \"lat\": { \"type\": \"number\" }\n                            },\n                            \"required\": [\"lng\", \"lat\"]\n                          },\n                          \"radius\": {\n                            \"type\": \"object\",\n                            \"properties\": {\n                              \"value\": { \"type\": \"number\" },\n                              \"units\": { \"type\": \"string\" }\n                            },\n                            \"required\": [\"value\", \"units\"]\n                          }\n                        },\n                        \"required\": [\"center\", \"radius\"]\n                      },\n                      \"outline_polygon\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"vertices\": {\n                            \"type\": \"array\",\n                            \"items\": {\n                              \"type\": \"object\",\n                              \"properties\": {\n                                \"lng\": { \"type\": \"number\" },\n                                \"lat\": { \"type\": \"number\" }\n                              },\n                              \"required\": [\"lng\", \"lat\"]\n                            }\n                          }\n                        },\n                        \"required\": [\"vertices\"]\n                      },\n                      \"altitude_lower\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"value\": { \"type\": \"number\" },\n                          \"reference\": { \"type\": \"string\" },\n                          \"units\": { \"type\": \"string\" }\n                        },\n                        \"required\": [\"value\", \"reference\", \"units\"]\n                      },\n                      \"altitude_upper\": {\n                        \"type\": \"object\",\n                        \"properties\": {\n                          \"value\": { \"type\": \"number\" },\n                          \"reference\": { \"type\": \"string\" },\n                          \"units\": { \"type\": \"string\" }\n                        },\n                        \"required\": [\"value\", \"reference\", \"units\"]\n                      }\n                    },\n                    \"required\": [\n                      \"outline_circle\", \n                      \"outline_polygon\", \n                      \"altitude_lower\", \n                      \"altitude_upper\"\n                    ]\n                  },\n                  \"time_start\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"value\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\"\n                      },\n                      \"format\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"RFC3339\"]\n                      }\n                    },\n                    \"required\": [\"value\", \"format\"]\n                  },\n                  \"time_end\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"value\": {\n                        \"type\": \"string\",\n                        \"format\": \"date-time\"\n                      },\n                      \"format\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"RFC3339\"]\n                      }\n                    },\n                    \"required\": [\"value\", \"format\"]\n                  }\n                },\n                \"required\": [\n                  \"volume\", \n                  \"time_start\", \n                  \"time_end\"\n                ]\n              }\n            },\n            \"type\": {\n              \"type\": \"string\"\n            },\n            \"geozone\": {\n              \"type\": \"object\",\n              \"properties\": {\n                \"identifier\": { \"type\": \"string\" },\n                \"country\": { \"type\": \"string\" },\n                \"zone_authority\": {\n                  \"type\": \"array\",\n                  \"items\": {\n                    \"type\": \"object\",\n                    \"properties\": {\n                      \"name\": { \"type\": \"string\" },\n                      \"service\": { \"type\": \"string\" },\n                      \"contact_name\": { \"type\": \"string\" },\n                      \"site_url\": { \"type\": \"string\" },\n                      \"email\": { \"type\": \"string\" },\n                      \"phone\": { \"type\": \"string\" },\n                      \"purpose\": { \"type\": \"string\", \"enum\": [\"AUTHORIZATION\"] },\n                      \"interval_before\": { \"type\": \"string\" }\n                    },\n                    \"required\": [\n                      \"name\", \n                      \"service\", \n                      \"contact_name\", \n                      \"site_url\", \n                      \"email\", \n                      \"phone\", \n                      \"purpose\", \n                      \"interval_before\"\n                    ]\n                  }\n                },\n                \"name\": { \"type\": \"string\" },\n                \"type\": { \"type\": \"string\", \"enum\": [\"COMMON\"] },\n                \"restriction\": { \"type\": \"string\" },\n                \"restriction_conditions\": {\n                  \"type\": \"array\",\n                  \"items\": { \"type\": \"string\" }\n                },\n                \"region\": { \"type\": \"integer\" },\n                \"reason\": {\n                  \"type\": \"array\",\n                  \"items\": { \"type\": \"string\" }\n                },\n                \"other_reason_info\": { \"type\": \"string\" },\n                \"regulation_exemption\": { \"type\": \"string\", \"enum\": [\"YES\"] },\n                \"u_space_class\": { \"type\": \"string\" },\n                \"message\": { \"type\": \"string\" },\n                \"additional_properties\": { \"type\": [\"object\", \"null\"] }\n              },\n              \"required\": [\n                \"identifier\", \n                \"country\", \n                \"zone_authority\", \n                \"name\", \n                \"type\", \n                \"restriction\", \n                \"restriction_conditions\", \n                \"region\", \n                \"reason\", \n                \"regulation_exemption\", \n                \"u_space_class\", \n                \"message\"\n              ]\n            }\n          },\n          \"required\": [\n            \"volumes\", \n            \"type\", \n            \"geozone\"\n          ]\n        }\n      },\n      \"required\": [\"reference\", \"details\"]\n    },\n    \"subscriptions\": {\n      \"type\": \"array\",\n      \"items\": {\n        \"type\": \"object\",\n        \"properties\": {\n          \"subscription_id\": {\n            \"type\": \"string\",\n            \"format\": \"uuid\"\n          },\n          \"notification_index\": {\n            \"type\": \"integer\"\n          }\n        },\n        \"required\": [\"subscription_id\", \"notification_index\"]\n      }\n    }\n  },\n  \"required\": [\"constraint_id\", \"constraint\", \"subscriptions\"]\n}\n"
+        }
+    ],
+    "callbacks": []
+}

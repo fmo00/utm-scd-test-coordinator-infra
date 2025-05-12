@@ -1,0 +1,24 @@
+services:
+    auth-mock-server:
+        container_name: auth-mock-server
+        restart: on-failure
+        build:
+            context: ./auth
+        ports:
+            - '${AUTH_SERVER_API_PORT}:${AUTH_SERVER_API_PORT}'
+
+    dss-mock-server:
+        container_name: dss-mock-server
+        restart: on-failure
+        build:
+            context: ./dss
+        ports:
+            - '${DSS_SERVER_API_PORT}:${DSS_SERVER_API_PORT}'
+
+    uss-mock-server:
+        container_name: uss-mock-server
+        restart: on-failure
+        build:
+            context: ./uss
+        ports:
+            - '${USS_SERVER_API_PORT}:${USS_SERVER_API_PORT}'

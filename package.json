@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@mockoon/cli": "^9.1.0"
+  }
+}
